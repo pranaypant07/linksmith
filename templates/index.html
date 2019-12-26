@@ -1,0 +1,407 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="/static/img/Linkfavicon.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>LinkSmith</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+		<script src="/static/js/chosen.jquery.js"></script>
+			<script src="/static/js/chosen.jquery.min.js"></script>
+			<script src="/static/js/chosen.proto.js"></script>
+			<script src="/static/js/chosen.proto.min.js"></script>
+			<script type = "text/javascript" language = "javascript">
+         $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+      </script>
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="/static/css/linearicons.css">
+			<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+			<link rel="stylesheet" href="/static/css/bootstrap.css">
+			<link rel="stylesheet" href="/static/css/magnific-popup.css">
+			<link rel="stylesheet" href="/static/css/nice-select.css">
+			<link rel="stylesheet" href="/static/css/animate.min.css">
+			<link rel="stylesheet" href="/static/css/owl.carousel.css">
+			<link rel="stylesheet" href="/static/css/main.css">
+			<link rel="stylesheet" href="/static/css/chosen.css">
+			<link rel="stylesheet" href="/static/css/chosen.min.css">
+
+		</head>
+		<body>
+		<script type="text/javascript">
+$(function(){
+	jQuery('.chzn-select').chosen();
+});
+function validateSearch() {
+
+    var company   = document.getElementsByName('company').company.value;
+
+    var  location = document.getElementsByName('location').location.value;
+
+    var jobrole = document.getElementsByName('jobrole').jobrole.value;
+
+
+    if(!company  && !location && !jobrole){
+        alert("Enter at least one search parameter!");
+        return false;
+    }
+};
+</script>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="/home"><img src="/static/img/Linksmith.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="/home">Home</a></li>
+				          <li><a href="/about-us">About Us</a></li>
+				          </li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<!--<div class="overlay overlay-bg"></div>-->
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-12">
+							<h1 class="text-white">
+								<span>1500+</span> Alumni are part of Linksmith
+							</h1>	
+							<form action="/search" class="search-form-area" method="POST">
+								<div class="row align-items-stretch form-wrap">
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="company" id="company" data-placeholder="Enter Company Name">
+											{% for company in company_list %}
+											<option value="[{{company}}]">{{company}}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="location" id="location "list="location" data-placeholder="Enter location" style="width: 200px;" >
+											{% for location in locations %}
+											<option name="company" value="[{{location}}]">{{location}}</option>
+										{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="jobrole" id="jobrole" list="jobrole" data-placeholder="Enter job roles" style="width: 200px;">
+											{% for jobrole in job_roles %}
+											<option value="[{{jobrole}}]">{{jobrole}}</option>
+										{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="industry" id="industry" data-placeholder="Enter Industry Type" style="width: 200px;">
+											{% for industry in industry_types %}
+											<option value="[{{industry}}]">{{industry}}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+
+								<div  style="text-align:right;">
+									    <button type="submit" class="btn btn-info">
+									      <span class="lnr lnr-magnifier"></span> Search
+									    </button>
+								</div>
+							</form>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+
+			
+			<!-- Start popular-post Area -->
+			<section class="popular-post-area pt-100">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="active-popular-post-carusel">
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+
+								</div>
+								<div class="details">
+									<a href="#"><h4>Career Coach</h4></a>
+									<h6>MD</h6>
+									<p>
+										John Malone is a seasoned career coach with strong skills in pissing off people
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+								</div>
+								<div class="details">
+									<a href="#"><h4>Financial Analyst</h4></a>
+									<h6>NYC</h6>
+									<p>
+										Ishaani Bhansaali from Indore is a seasoned phattu with a aim to get a 4 GPA
+									</p>
+								</div>
+							</div>
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+								</div>
+								<div class="details">
+									<a href="#"><h4>Software Engineer</h4></a>
+									<h6>CA</h6>
+									<p>
+										 Nayan Anand is a serial one night stander with the same girl for the last six years
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+								</div>
+								<div class="details">
+									<a href="#"><h4>Tech Evangelist</h4></a>
+									<h6>Los Angeles</h6>
+									<p>
+										Sharanya Iyer from chennai is tech evangelist for big n tech firm and doesnt close the windows which pisses of Ishaani
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+								</div>
+								<div class="details">
+									<a href="#"><h4>Product Manager</h4></a>
+									<h6>CA</h6>
+									<p>
+										Pranay Pant is a seasoned product manager with big n tech firms specialising in cracking odd sexual jokes
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-post d-flex flex-row">
+								<div class="thumb">
+								</div>
+								<div class="details">
+									<a href="#"><h4>Software Engineer</h4></a>
+									<h6>New Jersey</h6>
+									<p>
+										Anand Kulkarni is a young boy with white hair working for electronics firms
+									</p>
+								</div>
+							</div>																																							
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End popular-post Area -->
+			
+			<!-- Start feature-cat Area -->
+			<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Featured Job Categories in LinkSmith</h1>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o1.png" alt="">
+								</a>
+								<p>Accounting</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o2.png" alt="">
+								</a>
+								<p>Development</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o3.png" alt="">
+								</a>
+								<p>Technology</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o4.png" alt="">
+								</a>
+								<p>Tech Evangelist</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o5.png" alt="">
+								</a>
+								<p>Solutions IT</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="#">
+									<img src="/static/img/o6.png" alt="">
+								</a>
+								<p>Retail</p>
+							</div>			
+						</div>																											
+					</div>
+				</div>	
+			</section>
+			<!-- End feature-cat Area -->
+			
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+			</section>
+			<!-- End post Area -->
+				
+
+			<!-- Start download Area -->
+			<section class="download-area section-gap" id="app">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 download-left">
+							<img class="img-fluid" src="/static/img/d1.png" alt="">
+						</div>
+						<div class="col-lg-6 download-right">
+							<h1>Download the <br>
+							Linksmith App Today!</h1>
+							<p class="subs">
+								Our Linksmith App has special features and it's free!
+							</p>
+							<div class="d-flex flex-row">
+								<div class="buttons">
+									<i class="fa fa-apple" aria-hidden="true"></i>
+									<div class="desc">
+										<a href="#">
+											<p>
+												<span>Available</span> <br>
+												on App Store
+											</p>
+										</a>
+									</div>
+								</div>
+								<div class="buttons">
+									<i class="fa fa-android" aria-hidden="true"></i>
+									<div class="desc">
+										<a href="#">
+											<p>
+												<span>Available</span> <br>
+												on Play Store
+											</p>
+										</a>
+									</div>
+								</div>									
+							</div>						
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End download Area -->
+		
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6  col-md-12">
+							<div class="single-footer-widget newsletter">
+								<h6>Newsletter</h6>
+								<p>To keep you updated with new postings from our alumni.</p>
+								<div id="mc_embed_signup">
+									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+
+										<div class="form-group row" style="width: 100%">
+											<div class="col-lg-8 col-md-12">
+												<input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+												<div style="position: absolute; left: -5000px;">
+													<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+												</div>
+											</div> 
+										
+											<div class="col-lg-4 col-md-12">
+												<button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
+											</div> 
+										</div>		
+										<div class="info"></div>
+									</form>
+								</div>		
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->		
+
+			<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="/static/js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="/static/js/easing.min.js"></script>
+			<script src="/static/js/hoverIntent.js"></script>
+			<script src="/static/js/superfish.min.js"></script>
+			<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+			<script src="/static/js/jquery.magnific-popup.min.js"></script>
+			<script src="/static/js/owl.carousel.min.js"></script>
+			<script src="/static/js/jquery.sticky.js"></script>
+			<script src="/static/js/jquery.nice-select.min.js"></script>
+			<script src="/static/js/parallax.min.js"></script>
+			<script src="/static/js/mail-script.js"></script>
+			<script src="/static/js/main.js"></script>
+			<script src="/static/js/chosen.jquery.js"></script>
+			<script src="/static/js/chosen.jquery.min.js"></script>
+			<script src="/static/js/chosen.proto.js"></script>
+			<script src="/static/js/chosen.proto.min.js"></script>
+			<script src="/static/js/script.js"></script>
+		</body>
+	</html>
+
+
+

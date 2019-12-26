@@ -1,0 +1,312 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="/static/img/Linkfavicon.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>LinkSmith</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+		<script src="/static/js/chosen.jquery.js"></script>
+			<script src="/static/js/chosen.jquery.min.js"></script>
+			<script src="/static/js/chosen.proto.js"></script>
+			<script src="/static/js/chosen.proto.min.js"></script>
+			<script type = "text/javascript" language = "javascript">
+
+         $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+      </script>
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="/static/css/linearicons.css">
+			<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+			<link rel="stylesheet" href="/static/css/bootstrap.css">
+			<link rel="stylesheet" href="/static/css/magnific-popup.css">
+			<link rel="stylesheet" href="/static/css/nice-select.css">
+			<link rel="stylesheet" href="/static/css/animate.min.css">
+			<link rel="stylesheet" href="/static/css/owl.carousel.css">
+			<link rel="stylesheet" href="/static/css/main.css">
+			<link rel="stylesheet" href="/static/css/chosen.css">
+			<link rel="stylesheet" href="/static/css/chosen.min.css">
+		</head>
+		<body>
+		<script type="text/javascript">
+$(function(){
+	jQuery('.chzn-select').chosen();
+});
+function validateSearch() {
+
+    var company   = document.getElementsByName('company').company.value;
+
+    var  location = document.getElementsByName('location').location.value;
+
+    var jobrole = document.getElementsByName('jobrole').jobrole.value;
+
+
+    if(!company  && !location && !jobrole){
+        alert("Enter at least one search parameter!");
+        return false;
+    }
+};
+</script>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="/home"><img src="/static/img/Linksmith.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="/home">Home</a></li>
+				          <li><a href="/about-us">About Us</a></li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<!--<div class="overlay overlay-bg"></div>-->
+				<div class="container">
+					<div class="row search-page-top d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-12">
+							<h1 class="text-white">
+								Search Results
+							</h1>
+							<form action="/search" class="search-form-area" method="POST">
+								<div class="row align-items-stretch form-wrap">
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="company" id="company" data-placeholder="Enter Company Name">
+											{% for company in company_list %}
+											<option value="[{{company}}]">{{company}}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="location" id="location "list="location" data-placeholder="Enter location" style="width: 200px;" >
+											{% for location in locations %}
+											<option name="company" value="[{{location}}]">{{location}}</option>
+										{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="jobrole" id="jobrole" list="jobrole" data-placeholder="Enter job roles" style="width: 200px;">
+											{% for jobrole in job_roles %}
+											<option value="[{{jobrole}}]">{{jobrole}}</option>
+										{% endfor %}
+										</select>
+									</div>
+									<div class="col-lg-3 form-cols">
+										<select type="text" class="chzn-select" multiple="true" name="industry" id="industry" data-placeholder="Enter Industry Type" style="width: 200px;">
+											{% for industry in industry_types %}
+											<option value="[{{industry}}]">{{industry}}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+
+								<div  style="text-align:right;">
+									    <button type="submit" class="btn btn-info">
+									      <span class="lnr lnr-magnifier"></span> Search
+									    </button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							{% for alumni_info in alumni_info %}
+							<div class="single-post d-flex flex-row">
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between">
+										<div class="titles">
+
+
+												<h4>
+
+													{{alumni_info[0]}} {{ alumni_info[1]}}
+
+												</h4>
+
+											<h6></h6>
+										</div>
+									</div>
+									<p>
+										{{alumni_info[8]}}, {{ alumni_info[6]}}, ({{ alumni_info[9]}} - {{ alumni_info[10]}}) </h5>
+									</p>
+									<h5><a href="{{alumni_info[4]}}">{{alumni_info[4]}}</a> </h5>
+									<p class="address"><span class="lnr lnr-map"></span>Location: {{alumni_info[7]}}</p>
+									<p class="address"><span class="lnr lnr-database"></span>Salary: {{alumni_info[11]}}</p>
+								</div>
+							</div>
+
+
+
+						{% endfor %}
+
+
+						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/download">Download Alumni Info</a>
+						</div>
+
+						<div class="col-lg-4 sidebar">
+
+							<div class="single-slidebar">
+								<h4>Jobs by Location</h4>
+								<ul class="cat-list">
+									{% for job_loc_info in job_loc_info %}
+									<li><a class="justify-content-between d-flex" href="#"><p>{{job_loc_info[0]}}</p><span>{{job_loc_info[1]}}</span></a></li>
+									{% endfor %}
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Top rated Job Roles as per Salary Range</h4>
+								<div class="active-relatedjob-carusel">
+									<div class="single-rated">
+										<img class="img-fluid" src="/static/img/o3.png" alt="">
+										<h4>Product Manager</h4>
+										<p>
+											Product Managers are CEO's of a product and are highly in demand with high salaries
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-database"></span> 80k - 120k</p>
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="/static/img/o4.png" alt="">
+										<h4>Web Developer</h4>
+
+										<p>
+											Web Applications are on the rise due to widespread internet usage and developers are highly in demand
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-database"></span> 90k - 110k</p>
+
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="/static/img/o6.png" alt="">
+										<h4>Sofware Engineers</h4>
+										<p>
+											Software engineers are highly in demand as the world is moving towards automation and AI
+										</p>
+										<h5>Job Nature: Full time</h5>
+
+										<p class="address"><span class="lnr lnr-database"></span> 90k - 100k</p>
+
+									</div>																		
+								</div>
+							</div>							
+
+							<div class="single-slidebar">
+								<h4>Jobs by Industry</h4>
+								<ul class="cat-list">
+									{% for job_industry_info in job_industry_info %}
+									<li><a class="justify-content-between d-flex" href="#"><p>{{job_industry_info[0]}}</p><span>{{job_industry_info[1]}}</span></a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post Area -->
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6  col-md-12">
+							<div class="single-footer-widget newsletter">
+								<h6>Newsletter</h6>
+								<p>To keep you updated with new postings from our alumni.</p>
+								<div id="mc_embed_signup">
+									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+
+										<div class="form-group row" style="width: 100%">
+											<div class="col-lg-8 col-md-12">
+												<input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+												<div style="position: absolute; left: -5000px;">
+													<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+												</div>
+											</div>
+
+											<div class="col-lg-4 col-md-12">
+												<button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
+											</div>
+										</div>
+										<div class="info"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->		
+
+			<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="/static/js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="/static/js/easing.min.js"></script>
+			<script src="/static/js/hoverIntent.js"></script>
+			<script src="/static/js/superfish.min.js"></script>
+			<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+			<script src="/static/js/jquery.magnific-popup.min.js"></script>
+			<script src="/static/js/owl.carousel.min.js"></script>
+			<script src="/static/js/jquery.sticky.js"></script>
+			<script src="/static/js/jquery.nice-select.min.js"></script>
+			<script src="/static/js/parallax.min.js"></script>
+			<script src="/static/js/mail-script.js"></script>
+			<script src="/static/js/main.js"></script>
+			<script src="/static/js/chosen.jquery.js"></script>
+			<script src="/static/js/chosen.jquery.min.js"></script>
+			<script src="/static/js/chosen.proto.js"></script>
+			<script src="/static/js/chosen.proto.min.js"></script>
+			<script src="/static/js/script.js"></script>
+		</body>
+	</html>
+
+
+
